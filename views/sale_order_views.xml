@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Vue liste (Tree) -->
+    <record id="view_tree_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.tree.custom</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date_order"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue formulaire (Form) -->
+    <record id="view_form_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.form.custom</field>
+        <field name="model">sale.order</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="company_id"/> <!-- Ajout de ce champ -->
+                        <field name="name"/>
+                        <field name="user_id" options="{'no_create': True}"/>
+                        <field name="partner_id" required="1"/>
+                        <field name="date_order"/>
+                        <field name="state"/>
+                        <field name="amount_total_in_words" widget="html"
+                               options="{'format': 'html'}" readonly="1"
+                               style="color: red; font-weight: bold;"/>
+
+                    </group>
+
+                    <!-- Lignes de commande (Produits à commander) -->
+                    <group>
+                        <field name="order_line">
+                            <tree editable="bottom">
+                                <field name="product_id"/> <!-- Sélection des produits -->
+                                <field name="product_uom_qty"/> <!-- Quantité -->
+                                <field name="price_unit"/> <!-- Prix unitaire -->
+                                <field name="price_subtotal"/> <!-- Sous-total -->
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

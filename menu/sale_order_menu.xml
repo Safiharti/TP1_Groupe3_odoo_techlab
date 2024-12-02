@@ -1,0 +1,14 @@
+<odoo>
+    <!-- Menu principal -->
+    <menuitem id="menu_main_custom" name="Gestion des Ventes" sequence="10"/>
+
+    <!-- Sous-menu pour les employés -->
+    <menuitem id="menu_employee" name="Employés" parent="menu_main_custom" sequence="1"/>
+
+    <!-- Sous-menu pour les commandes -->
+    <menuitem id="menu_sale_order" name="Commandes" parent="menu_main_custom" sequence="2"/>
+
+    <!-- Lier les actions aux menus -->
+    <menuitem id="menu_employee_action" name="Employés" parent="menu_employee" action="action_employee"/>
+    <menuitem id="menu_sale_order_action" name="Commandes" parent="menu_sale_order" action="action_sale_order"/>
+</odoo>
