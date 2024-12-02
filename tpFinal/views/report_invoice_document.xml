@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <!-- Définition du rapport personnalisé -->
+        <report
+            id="action_report_invoice_custom"
+            string="Invoice Report"
+            model="res.partner"
+            report_type="qweb-pdf"
+            name="tpFinal.report_invoice_document"
+            file="tpFinal.report_invoice_document"
+            print_report_name="'Invoice - %s' % (object.name)"
+        />
+
+        <!-- Template QWeb du rapport personnalisé -->
+        <template id="report_invoice_document">
+            <t t-name="tpFinal.report_invoice_document">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <!-- Définition d'une variable pour le titre -->
+                        <t t-set="custom_invoice_title" t-value="'Invoice Report for %s' % (docs[0].partner_id.name)"/>
+
+                        <h2 style="text-align:center;">
+                            <span t-esc="custom_invoice_title"/>
+                        </h2>
+                        
+                        <table style="width:100%; border-collapse:collapse; text-align:left;">
+                            <thead>
+                                <tr style="background-color:#f0f0f0;">
+                                    <th style="border: 1px solid #ddd; padding: 8px;">Order Number</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px;">Customer</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px;">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="doc">
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">
+                                            <span t-field="doc.name"/>
+                                        </td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">
+                                            <span t-field="doc.partner_id.name"/>
+                                        </td>
+                                        <td style="border: 1px solid #ddd; padding: 8px; text-align:right;">
+                                            <span t-field="doc.amount_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Montant total en lettres -->
+                        <div style="margin-top: 20px; text-align: center; color: red;">
+                            <strong>Total in Words:</strong>
+                            <span t-field="doc.amount_total_in_words" />
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

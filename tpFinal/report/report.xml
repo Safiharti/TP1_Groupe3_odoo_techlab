@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!-- Définition de l'action de rapport -->
+        <report
+            id="action_report_invoice_document"
+            model="account.move"
+            string="Custom Invoice Report"
+            report_type="qweb-pdf"
+            name="tpFinal.report_invoice_document"
+            file="tpFinal.report_invoice_document"
+            attachment_use="False"
+        />
+    </data>
+</odoo>

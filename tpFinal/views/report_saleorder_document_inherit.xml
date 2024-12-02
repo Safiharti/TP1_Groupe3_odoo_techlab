@@ -1,0 +1,12 @@
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[contains(@class, 'page')]" position="inside">
+            <!-- Ajout de la somme totale en lettres -->
+            <div style="text-align: center; margin-top: 40px; color: red;">
+                <strong>
+                    <t t-esc="doc.amount_total_in_words" />
+                </strong>
+            </div>
+        </xpath>
+    </template>
+</odoo>
