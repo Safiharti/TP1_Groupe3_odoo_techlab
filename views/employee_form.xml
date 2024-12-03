@@ -1,16 +1,15 @@
 <odoo>
-    <record id="view_employee_form_custom" model="ir.ui.view">
-        <field name="name">hr.employee.form.custom</field>
+    <record id="view_hr_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.open.orders</field>
         <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="max_orders"/>
-                    </group>
-                </sheet>
-            </form>
+            <xpath expr="//sheet" position="inside">
+                <group string="Order Management">
+                    <field name="max_open_orders"/>
+                    <field name="current_open_orders" readonly="1"/>
+                </group>
+            </xpath>
         </field>
     </record>
 </odoo>
