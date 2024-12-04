@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!-- Héritage du rapport standard -->
+        <report
+            id="action_report_invoice_with_words"
+            string="Facture avec Montant en Lettres"
+            model="account.move"
+            report_type="qweb-pdf"
+            name="account.report_invoice_document"
+            file="account.report_invoice_document"
+            print_report_name="'Facture - %s' % (object.name)"
+        />
+    </data>
+</odoo>

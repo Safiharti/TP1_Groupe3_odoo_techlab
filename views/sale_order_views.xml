@@ -17,9 +17,16 @@
     <record id="view_form_sale_order_custom" model="ir.ui.view">
         <field name="name">sale.order.form.custom</field>
         <field name="model">sale.order</field>
-        <field name="priority" eval="16"/>
+        <field name="priority" eval="99"/>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_create_invoice"
+                            type="object"
+                            string="Créer une facture"
+                            class="oe_highlight"
+                            invisible="state != 'sale'"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="company_id"/> <!-- Ajout de ce champ -->
@@ -28,13 +35,11 @@
                         <field name="partner_id" required="1"/>
                         <field name="date_order"/>
                         <field name="state"/>
-                        <field name="amount_total_in_words" widget="html"
-                               options="{'format': 'html'}" readonly="1"
-                               style="color: red; font-weight: bold;"/>
-
                     </group>
 
-                    <!-- Lignes de commande (Produits à commander) -->
+                    <!-- Lignes de commande (Produits à commander) <field name="amount_total_in_words" widget="html"
+                               options="{'format': 'html'}" readonly="1"
+                               style="color: red; font-weight: bold;"/> -->
                     <group>
                         <field name="order_line">
                             <tree editable="bottom">

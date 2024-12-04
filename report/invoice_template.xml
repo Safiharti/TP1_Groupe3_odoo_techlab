@@ -1,0 +1,11 @@
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <!-- Ajout du montant total en lettres -->
+            <div style="margin-top: 20px; text-align: center; color: red;">
+                <strong>Somme à payer :</strong>
+                <t t-esc="o.amount_total_in_words" />
+            </div>
+        </xpath>
+    </template>
+</odoo>

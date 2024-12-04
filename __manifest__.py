@@ -9,6 +9,8 @@
         'security/ir.model.access.csv',
         'views/sale_order_views.xml',
         'views/employee_form.xml',
+        'report/report_action.xml',
+        'report/invoice_template.xml',
         'menu/sale_order_actions.xml',
         'menu/sale_order_menu.xml',
     ],
