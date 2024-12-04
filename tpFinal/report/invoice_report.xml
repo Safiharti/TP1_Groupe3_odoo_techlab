@@ -1,0 +1,23 @@
+<odoo>
+    <template id="report_invoice_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Invoice Report</h2>
+                <table>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Customer</th>
+                        <th>Total</th>
+                    </tr>
+                    <t t-foreach="docs" t-as="doc">
+                        <tr>
+                            <td><span t-field="doc.name"/></td>
+                            <td><span t-field="doc.partner_id.name"/></td>
+                            <td><span t-field="doc.amount_total"/></td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

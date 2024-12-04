@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_tree_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.tree.custom</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id" string="user_id"/>
+                <field name="date_order"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.form.custom</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                        <field name="date_order"/>
+                        <field name="state"/>
+                        <!-- Ajout du champ company_id si ce n'est pas déjà fait -->
+                        <field name="company_id"/>
+                        
+                        <!-- Votre champ user_id avec le domaine -->
+                        <field name="user_id" domain="[('groups_id', '=', 21), ('share', '=', False), ('company_ids', '=', company_id)]"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

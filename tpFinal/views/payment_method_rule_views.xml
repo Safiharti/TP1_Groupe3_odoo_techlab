@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <!-- Vue de la règle de méthode de paiement -->
+        <record id="view_payment_method_rule_form" model="ir.ui.view">
+            <field name="name">payment.method.rule.form</field>
+            <field name="model">payment.method.rule</field>
+            <field name="arch" type="xml">
+                <form string="Règle de méthode de paiement">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="min_amount" />
+                            <field name="max_amount" />
+                            <field name="payment_method_id" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_payment_method_rule_tree" model="ir.ui.view">
+            <field name="name">payment.method.rule.tree</field>
+            <field name="model">payment.method.rule</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="min_amount" />
+                    <field name="max_amount" />
+                    <field name="payment_method_id" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action pour afficher les règles -->
+        <record id="action_payment_method_rules" model="ir.actions.act_window">
+            <field name="name">Règles de méthode de paiement</field>
+            <field name="res_model">payment.method.rule</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder à la gestion des règles -->
+        <menuitem id="menu_payment_method_rules" name="Règles de méthode de paiement" parent="account.menu_finance" action="action_payment_method_rules"/>
+    </data>
+</odoo>

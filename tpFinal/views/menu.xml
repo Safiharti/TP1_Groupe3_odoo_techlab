@@ -1,0 +1,23 @@
+<odoo>
+    <!-- Menu principal -->
+    <menuitem id="menu_main_custom" name="Gestion des Ventes" sequence="10"/>
+
+    <!-- Sous-menu pour les employés -->
+    <menuitem id="menu_employee" name="Employés" parent="menu_main_custom" sequence="1"/>
+
+    <!-- Sous-menu pour les commandes -->
+    <menuitem id="menu_sale_order" name="Commandes" parent="menu_main_custom" sequence="2"/>
+
+    <!-- Action pour afficher les employés -->
+    <record id="action_employee" model="ir.actions.act_window">
+        <field name="name">Liste des employés</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Action pour afficher les commandes -->
+
+    <!-- Lier les actions aux menus -->
+    <menuitem id="menu_employee_action" name="Employés" parent="menu_employee" action="action_employee"/>
+</odoo>
