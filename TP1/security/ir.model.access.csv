@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_performance_user,access.product.performance.user,model_product_performance,base.group_user,1,1,1,1
+access_customer_loyalty_user,access.customer.loyalty.user,model_customer_loyalty,base.group_user,1,1,1,1
+access_employee_performance_user,access.employee.performance.user,model_employee_performance,base.group_user,1,1,1,1
+access_satisfaction_user,access.satisfaction.user,model_sale_satisfaction,base.group_user,1,1,1,1
+access_product_recommendation_user,access.product.recommendation.user,model_product_recommendation,base.group_user,1,1,1,1
+access_sale_season_user,Access Sale Season User,model_sale_season,group_sale_user,1,0,0,0

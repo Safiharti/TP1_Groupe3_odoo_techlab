@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Liste des recommandations de produits -->
+    <record id="view_product_recommendation_tree" model="ir.ui.view">
+        <field name="name">product.recommendation.tree</field>
+        <field name="model">product.recommendation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="recommended_product_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Formulaire de recommandation de produits -->
+    <record id="view_product_recommendation_form" model="ir.ui.view">
+        <field name="name">product.recommendation.form</field>
+        <field name="model">product.recommendation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                    </group>
+                    <group>
+                        <field name="recommended_product_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

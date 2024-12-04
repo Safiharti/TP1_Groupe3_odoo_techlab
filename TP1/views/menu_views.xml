@@ -1,0 +1,45 @@
+<odoo>
+    <menuitem 
+                id="menu_sales_analytics_root" 
+                name="Sales Analytics"
+                sequence="1"/>
+
+    <menuitem 
+                id="menu_sales_season" 
+                name="Seasons" 
+                parent="menu_sales_analytics_root"
+                action="action_season"
+                sequence="3"/>
+                
+    <menuitem 
+                id="menu_sales_customers" 
+                name="Customer Loyalty" 
+                action="action_customer_loyalty"
+                parent="menu_sales_analytics_root"
+                sequence="4"/>
+    <menuitem 
+                id="menu_sales_employees" 
+                name="Employee Performance" 
+                action="action_employee_performance"
+                parent="menu_sales_analytics_root"
+                sequence="5"/>
+    <menuitem 
+                id="menu_sales_satisfaction" 
+                name="Satisfaction" 
+                action="action_satisfaction"
+                parent="menu_sales_analytics_root"
+                sequence="6"/>
+    <menuitem 
+                id="menu_sales_recommendation" 
+                name="Product Recommendations" 
+                action="action_product_recommendation"
+                parent="menu_sales_analytics_root"
+                sequence="7"/>
+
+     <!-- Menu Item -->
+    <menuitem  id="menu_product_performance" 
+               name="Product Performance"
+               parent="menu_sales_analytics_root" 
+               action="action_product_performance"
+               sequence="8"/>
+</odoo>

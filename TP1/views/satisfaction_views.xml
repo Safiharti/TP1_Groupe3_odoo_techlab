@@ -1,0 +1,36 @@
+<odoo>
+    <!-- Liste des performances des employés -->
+    <record id="view_employee_performance_tree" model="ir.ui.view">
+        <field name="name">employee.performance.tree</field>
+        <field name="model">employee.performance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="product_performance_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Formulaire de performance des employés -->
+    <record id="view_employee_performance_form" model="ir.ui.view">
+        <field name="name">employee.performance.form</field>
+        <field name="model">employee.performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                    </group>
+                    <group>
+                        <field name="product_performance_ids">
+                            <tree>
+                                <field name="product_id"/>
+                                <field name="total_sales"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
