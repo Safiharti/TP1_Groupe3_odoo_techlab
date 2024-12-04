@@ -13,6 +13,7 @@
         'report/invoice_template.xml',
         'data/ir_config_parameter_data.xml',
         'views/account_move_view.xml',
+        'views/payment_method_rule_views.xml',
         'views/res_config_settings_views.xml',
         'menu/sale_order_actions.xml',
         'menu/sale_order_menu.xml',
