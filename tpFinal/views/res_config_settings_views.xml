@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_res_config_settings_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.account.move</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Cibler un élément plus général, comme le form ou un div spécifique -->
+            <xpath expr="//form" position="inside">
+                <group string="Facture Settings">
+                    <field name="account_move_warning_threshold" string="test"/>
+                    <field name="account_move_danger_threshold"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

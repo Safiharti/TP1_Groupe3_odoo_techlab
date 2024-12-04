@@ -1,0 +1,72 @@
+<odoo>
+     <!-- Vue Liste des factures avec bouton d'annulation -->
+    <record id="view_invoice_tree_inherit_with_cancel_button" model="ir.ui.view">
+        <field name="name">account.move.tree.invoice.with.cancel.button</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <!-- Ajouter le champ decoration_class pour qu'il soit disponible dans la vue -->
+                <field name="decoration_class" invisible="1"/>
+
+                <!-- Ajouter le bouton "Annuler" dans chaque ligne -->
+                <button name="action_cancel_invoice_with_reason"
+                        type="object"
+                        string="Annuler"
+                        class="btn-danger"
+                        icon="fa-trash"
+                        invisible="state != 'draft'" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vue pour saisir la raison d'annulation -->
+    <record id="view_cancel_reason_form" model="ir.ui.view">
+        <field name="name">account.move.cancel.reason.form</field>
+        <field name="model">account.move</field>
+        <field name="priority" eval="17"/>
+        <field name="arch" type="xml">
+            <form string="Raison d'Annulation">
+                <group>
+                    <field name="cancel_reason" placeholder="Entrez la raison de l'annulation" required="True"/>
+                </group>
+                <footer>
+                    <button string="Confirmer" class="btn btn-primary" type="object" name="confirm_cancel_reason"/>
+                    <button string="Fermer" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour ouvrir la vue de raison d'annulation -->
+    <record id="action_invoice_cancel_reason" model="ir.actions.act_window">
+        <field name="name">Annuler la Facture</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_cancel_reason_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- Vue Liste des factures avec coloration en fonction du montant total -->
+    <record id="view_invoice_tree_inherit" model="ir.ui.view">
+        <field name="name">account.move.tree.invoice.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <!-- Appliquer les décorations dynamiques basées sur decoration_class -->
+                <attribute name="decoration-info">decoration_class == 'info'</attribute>
+                <attribute name="decoration-warning">decoration_class == 'warning'</attribute>
+                <attribute name="decoration-danger">decoration_class == 'danger'</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <!-- Ajouter le champ decoration_class pour qu'il soit disponible dans la vue -->
+                <field name="decoration_class" invisible="1"/>
+            </xpath> 
+        </field>
+    </record>
+
+
+
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <record id="param_warning_threshold" model="ir.config_parameter">
+        <field name="key">account_move.warning_threshold</field>
+        <field name="value">40000</field>
+    </record>
+    <record id="param_danger_threshold" model="ir.config_parameter">
+        <field name="key">account_move.danger_threshold</field>
+        <field name="value">40000</field>
+    </record>
+</odoo>

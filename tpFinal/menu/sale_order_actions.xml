@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Action pour afficher les employés -->
+    <record id="action_employee" model="ir.actions.act_window">
+        <field name="name">Liste des employés</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_sale_order" model="ir.actions.act_window">
+        <field name="name">Liste des commandes</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_sale_order_custom"/>
+        <field name="context">{}</field>
+    </record>
+</odoo>
