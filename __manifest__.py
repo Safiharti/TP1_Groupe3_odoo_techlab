@@ -13,6 +13,8 @@
         'report/invoice_template.xml',
         'menu/sale_order_actions.xml',
         'menu/sale_order_menu.xml',
+        'views/account_move_views.xml',
+        'views/cancel_reason_wizard_views.xml',
     ],
     'installable': True,
     'application': True,

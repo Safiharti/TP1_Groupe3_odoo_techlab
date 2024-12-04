@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_cancel_reason_wizard_form" model="ir.ui.view">
+        <field name="name">cancel.reason.wizard.form</field>
+        <field name="model">cancel.reason.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Raison d'annulation">
+                <sheet>
+                    <group>
+                        <field name="reason" placeholder="Entrez la raison de l'annulation..." />
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Annuler la facture" type="object" name="confirm_cancel" class="btn-primary" />
+                    <button string="Fermer" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

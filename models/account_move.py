@@ -12,6 +12,22 @@ class AccountMove(models.Model):
         store=True
     )
 
+    def action_open_cancel_reason_wizard(self):
+        """Ouvre le wizard pour saisir la raison d'annulation."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Raison d\'annulation',
+            'res_model': 'cancel.reason.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_invoice_id': self.id},
+        }
+
+    def action_cancel_with_reason(self, reason):
+        """Annule la facture avec une raison spécifiée."""
+        self.write({'state': 'cancel'})  # Passe l'état de la facture à "annulée".
+        self.message_post(body=f"Facture annulée avec la raison : {reason}")
+
     @api.depends('amount_total', 'currency_id')
     def _compute_amount_total_in_words(self):
         """Calcul du montant total en lettres avec la devise."""
