@@ -16,8 +16,11 @@ Voici les principaux fonctionnalité :
 - Ajouter une étape de validation pour les factures avec un montant élevé.
 
 Fait par:
+
 RABARIMAHEFA Joariniaina Anthony
+
 RAHAJARISON Anja Niaina
+
 RASAMOELINA Safidy Harinantenaina
 
 
