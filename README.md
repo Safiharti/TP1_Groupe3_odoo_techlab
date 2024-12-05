@@ -6,6 +6,7 @@ Détails Techniques
 Version de Python : 3.11+
 Version d'Odoo : V17
 Version de PostgreSQL : 12
+
 Fonctionnalité : Personnalisation facture et limité les commandes actives réçues des employés
 Voici les principaux fonctionnalité :
 - Ajouter des informations en lettre sur les factures.
