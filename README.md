@@ -15,3 +15,9 @@ Voici les principaux fonctionnalité :
 - Paramétrer les seuils de colorisation des factures.
 - Ajouter une étape de validation pour les factures avec un montant élevé.
 
+Fait par:
+RABARIMAHEFA Joariniaina Anthony
+RAHAJARISON Anja Niaina
+RASAMOELINA Safidy Harinantenaina
+
+
